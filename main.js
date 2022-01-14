@@ -6,8 +6,8 @@
 
 
 // object to contain list of dad jokes and methods required to print random ones to the console
-let dadJokes = {
-    _jokeList: [
+let jokes = {
+    _dadJokeList: [
         "How many telemarketers does it take to change a light bulb? Only one, but he has to do it while you are eating dinner.",
         "How many narcissists does it take to screw in a light bulb? One. The narcissist holds the light bulb while the rest of the world revolves around him.",
         "How many DIY buffs does it take to change a light bulb? One, but it takes two weeks and four trips to the hardware store.",
@@ -38,25 +38,67 @@ let dadJokes = {
         "What's the best way to watch a fly-fishing tournament? Live stream.",
         "How do you tell the difference between an alligator and a crocodile? You will see one later and one in a while."
     ],
-    get jokeList () {
-        return this._jokeList;
+    get dadJokeList () {
+        return this._dadJokeList;
     },
-    set jokeList (newList) {
-        this._jokeList = newList;
+    set dadJokeList (newList) {
+        this._dadJokeList = newList;
     },
-    addJokeToList (joke) {
-        this._jokeList.push(joke);
+    addDadJokeToList (joke) {
+        this._dadJokeList.push(joke);
     },
+
+    _momJokeList: [
+        'Why is a computer so smart? Because it listens to its motherboard',
+        "What kind of flowers are best for Mother's Day? Mums.",
+        "What did the baby corn say to the mama corn? Where's Pop-corn?",
+        "What did the panda give his mommy? A bear hug.",
+        "Don't wake up mom! There are at least seven species that eat their young. Your mom may be one of them."
+    ],
+    get momJokeList () {
+        return this._momJokeList;
+    },
+    set momJokeList (newList) {
+        this._momJokeList = newList;
+    },
+    addmomJokeToList (joke) {
+        this._momJokeList.push(joke);
+    },
+
+    _knockKnockJokeList: [
+        "Knock! Knock! Who's there? Mikey. Mikey who? Mikey isn't working, can you let me in?",
+        "Knock! Knock! Who's there? Scold. Scold who? Scold outside, let me in!",
+        "Knock! Knock! Who's there? Needle. Needle who? Needle little help getting in the door!",
+        "Knock! Knock! Who's there? Dejav. Dejav who? Knock! Knock!",
+        "Knock! Knock! Who's there? Hike. Hike who? I didn't know you liked Japanese poetry!"
+    ],
+    get knockKnockJokeList () {
+        return this._knockKnockJokeList;
+    },
+    set knockKnockJokeList (newList) {
+        this._knockKnockJokeList = newList;
+    },
+    addKnockKnockJokeToList (joke) {
+        this._knockKnockJokeList.push(joke);
+    },
+
     // prints a random joke to the console. Also returns the joke for use elsewhere in the program.
-    generateJoke () {
-        let joke = this._jokeList[Math.floor(Math.random() * this._jokeList.length)];
-        console.log(joke);
-        return joke;
+    generateJokes () {
+        let jokes = [];
+        jokes.push(this._dadJokeList[Math.floor(Math.random() * this._dadJokeList.length)]);
+        jokes.push(this._momJokeList[Math.floor(Math.random() * this._momJokeList.length)]);
+        jokes.push(this._knockKnockJokeList[Math.floor(Math.random() * this._knockKnockJokeList.length)]);
+
+        jokes.forEach(joke => {
+            console.log(joke);
+        })
+
+        return jokes;
     }
 }
 
 // calls generateJoke method
-dadJokes.generateJoke();
+jokes.generateJokes();
 
 
 
